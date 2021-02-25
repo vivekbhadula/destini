@@ -18,11 +18,18 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var choiceTwo: UIButton!
     
-    @IBAction func choiceMade(_ sender: UIButton) {
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateUI()
+    }
+    
+    @IBAction func choiceMade(_ sender: UIButton) {
+        let userChoice = sender.currentTitle!
+        story.moveStory(userChoice)
+        updateUI()
+    }
+    
+    func updateUI() {
         let optionOneText = story.getOption1()
         let optionTwoText = story.getOption2()
         questionText.text = story.getQuestion()

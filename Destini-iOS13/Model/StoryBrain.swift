@@ -29,4 +29,13 @@ struct StoryBrain {
         return stories[storyLine].choice2
     }
     
+    mutating func moveStory(_ userChoice: String) {
+        if userChoice == stories[storyLine].choice1{
+            storyLine += 1
+        }
+        else {
+            storyLine += 2
+        }
+    }
+    
 }
