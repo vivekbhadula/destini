@@ -10,6 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    var story = StoryBrain()
+    
     @IBOutlet weak var questionText: UILabel!
     
     @IBOutlet weak var choiceOne: UIButton!
@@ -19,18 +21,14 @@ class ViewController: UIViewController {
     @IBAction func choiceMade(_ sender: UIButton) {
     }
     
-    let story0 = "You see a fork in the road."
-    let choice1 = "Take a left"
-    let choice2 = "Take a right"
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        questionText.text = story0
-        choiceOne.setTitle(choice1, for: .normal)
-        choiceTwo.setTitle(choice2, for: .normal)
+        let optionOneText = story.getOption1()
+        let optionTwoText = story.getOption2()
+        questionText.text = story.getQuestion()
+        choiceOne.setTitle(optionOneText, for: .normal)
+        choiceTwo.setTitle(optionTwoText, for: .normal)
     }
-    
-    var story1 = Story(title: "You see a fork in the road.", choice1: "Take a left", choice2: "Take a right")
     
 }
 
